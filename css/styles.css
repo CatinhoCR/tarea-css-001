@@ -1,0 +1,384 @@
+/* =========================
+  CSS Variables
+  Variable Prefix: "fm"
+  @usage style-property: var(--fm-variable-name);
+  @package Foxy Mojo 0.1
+============================ */
+:root {
+  --fm-blue: #1960ca;
+  --fm-green: #00ff9c;
+  --fm-purple: #666686;
+  --fm-warm-black: #212121;
+  --fm-warm-white: #f6f6f6;
+  --fm-grey: #666666;
+}
+
+/* =========================
+  Globals
+  Bootstrap already includes Normalize and their own set of base styles
+  @see https://getbootstrap.com/docs/5.1/content/reboot/
+============================ */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  /*
+  All browsers default font-size is 16px
+  Set OUR base font size to 10px
+  Which is 62.5% of 16
+  */
+  font-size: 62.5%;
+}
+body {
+  /*
+    Re set default font size to 16px
+    10px is too small to read, but perfect for our math using rems
+    so instead of (target (px) / 16) we can use (target / 10)
+    Example: On a 16px HTML size, to get 24px in rems we do (24 / 16) = 1.5rem
+    While if we do it on a 10px base, 24 / 10 = 2.4, or 40px would be 4rem
+  */
+  font-size: 1.6rem;
+}
+
+section {
+  padding: 6rem 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* =========================
+  Overwrite Bootstrap's styles
+  Some classes use the !important flag, because bootstrap uses it in theirs...
+  @see https://getbootstrap.com/docs/5.1/customize/overview/
+============================ */
+.bg-light {
+  background-color: var(--fm-warm-white) !important;
+}
+
+.bg-purple {
+  background-color: var(--fm-purple) !important;
+}
+
+.bg-green {
+  background-color: var(--fm-green) !important;
+}
+
+.bg-grey {
+  background-color: var(--fm-grey) !important;
+}
+
+/* =========================
+  Utility Classes
+  Simple classes to be reused instead of needing to add styles for everything
+  ========================= */
+.align-center {
+  text-align: center;
+}
+
+/* =========================
+  Typography
+============================ */
+.title {
+  font-family: 'Kaisei HarunoUmi', serif;
+  color: var(--fm-grey);
+  font-size: 5.6rem;
+  line-height: 1.25;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.title-md {
+  font-size: 4.6rem;
+  line-height: 1.25;
+}
+
+.title-sm {
+  font-size: 3.6rem;
+  line-height: 1.15;
+}
+
+.title-xs {
+  font-size: 2.8rem;
+  line-height: 1;
+  font-style: normal;
+}
+
+.text {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+  font-weight: 400;
+  font-stretch: normal;
+  font-style: normal;
+  color: var(--fm-warm-black);
+}
+
+.text-lg {
+  font-size: 20rem;
+}
+
+.text-sm {
+  font-size: 1.4rem;
+}
+
+a, /* Added a just as a global controller */
+.link {
+  font-family: 'Oswald', sans-serif;
+  color: var(--fm-blue);
+  text-decoration: none;
+}
+
+a:hover,
+.link:hover {
+  color: var(--fm-blue);
+}
+
+/* =========================
+  Buttons
+============================ */
+.button {
+  padding: 1.5rem 3rem;
+  /* height: 4.2rem; */
+  font-family: 'Kaisei HarunoUmi', serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  text-align: center;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: 0;
+  color: #4d4d4d;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  display: inline-flex;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  /*
+  position: relative;
+  align-self: center;
+  align-items: center;
+  white-space: nowrap;
+  justify-content: space-between;
+  */
+}
+
+.button:hover {
+  color: #fff;
+  background-color: var(--fm-green);
+  border: 1px solid var(--fm-green);
+}
+
+.button-green {
+  color: #fff;
+  background-color: var(--fm-green);
+  border: 1px solid var(--fm-green);
+}
+
+.button-green:hover {
+  color: #4d4d4d;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+
+/* =========================
+  Header
+============================ */
+
+
+/* =========================
+  Hero Banner
+============================ */
+.hero {
+  position: relative;
+  /* padding: */
+  height: 100vh;
+  /* max-height: 60rem; */
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 60rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+
+}
+
+.hero-title {
+  color: var(--fm-green);
+  text-transform: capitalize;
+}
+
+/* =========================
+  Simply Block
+============================ */
+.simply {
+  padding: 10rem 0;
+}
+
+.simply-title {
+  max-width: 42rem;
+  margin-bottom: 6rem;
+}
+
+.simply-title-inner {
+  color: var(--fm-green);
+}
+
+.simply-info {
+  margin-bottom: 4rem;
+}
+
+.simply-author {
+  color: #b8b8b8;
+}
+
+/* =========================
+  Quality Block
+============================ */
+.quality {
+  padding: 14rem 0;
+}
+
+.quality-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+
+.quality-title,
+.quality-info {
+  color: #fff;
+}
+
+.quality-title {
+  margin-bottom: 4rem;
+}
+
+.quality-info {
+  margin-bottom: 6rem;
+}
+
+/* =========================
+  Perfection Block
+============================ */
+.perfection-intro {
+  margin-bottom: 6rem;
+}
+
+.perfection-title {
+  margin-bottom: 4rem;
+}
+
+.perfection-info {
+  margin-bottom: 6rem;
+}
+
+.perfection-outro {
+  padding: 0 1.5rem;
+}
+
+.perfection-outro-content {
+  padding-left: 5rem;
+  margin-bottom: 4rem;
+}
+
+/* =========================
+  Swiper (Slider sim)
+============================ */
+.swiper {
+  position: relative;
+  padding: 0 1.5rem;
+}
+
+.swiper-slide-img {
+  object-fit: cover;
+  /* position: relative;
+  z-index: 1; */
+}
+
+.swiper-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.swiper-prev,
+.swiper-next {
+  border-radius: 0;
+  padding: 2rem .5rem;
+  /* position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%); */
+}
+
+.swiper-icon {
+  width: 3rem;
+  height: auto;
+}
+
+/* Traditional approach
+.swiper-prev {
+  left: 0;
+}
+
+.swiper-next {
+right: 0;
+}
+*/
+
+/* =========================
+  Subscription
+============================ */
+.subscribe-inner {
+  width: 100%;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.subscribe-title {
+  color: #333333;
+}
+
+/* =========================
+  Footer
+============================ */
+
+/* =========================
+  Responsive
+============================ */
+@media only screen and (min-width: 600px) {}
+
+@media only screen and (min-width: 768px) {}
+
+@media only screen and (min-width: 992px) {}
+
+@media only screen and (min-width: 1200px) {
+  .subscribe-inner {
+    max-width: 1320px;
+    padding: 0 10rem;
+  }
+}
