@@ -1,21 +1,22 @@
 $(document).ready(function () {
-  var navHeight = 80 + 1
-  var scrollTrigger = $(window).height() - navHeight
+  var navHeight = 80 + 1;
+  var scrollTrigger = $(window).height() - navHeight;
+  var header = $('.header')
 
   $(window).bind('scroll', function () {
 
 
     if ($(window).scrollTop() > (navHeight)) {
-      $('.header').addClass('scrolled')
+      header.addClass('scrolled')
     } else {
-      $('.header').removeClass('scrolled')
+      header.removeClass('scrolled')
     }
 
 
     if ($(window).scrollTop() > scrollTrigger) {
-      $('.header').addClass('fixed')
+      header.addClass('fixed')
     } else {
-      $('.header').removeClass('fixed')
+      header.removeClass('fixed')
     }
   })
 })
