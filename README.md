@@ -8,8 +8,11 @@
   Where [Repository] is the text inside [brackets] and the URL follows.
 -->
 This is the way.
+
 You can see this project or lesson's public information [here](https://github.com/CatinhoCR/tarea-css-001).
+
 You can **read the formatted version of this** [README here].
+
 IF for some reason **you can't access the previous link**, download a markdown preview extension for your visual studio code (or editor of preference).
 
 ## Lesson & Resources
