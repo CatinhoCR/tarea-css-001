@@ -13,7 +13,7 @@
   @usage style-property: var(--fm-variable-name);
 ============================ */
 :root {
-  --fm-blue: #1960ca;
+  --fm-blue: #10368c;
   --fm-green: #00ff9c;
   --fm-grey: #666;
   --fm-dark-grey: #333;
@@ -47,6 +47,7 @@ html {
   Which is 62.5% of 16 (100%)
   */
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -62,7 +63,7 @@ body {
 
 a {
   text-decoration: none;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 button {
@@ -70,7 +71,8 @@ button {
   border: none;
 }
 
-ol, ul {
+ol,
+ul {
   padding: 0;
 }
 
@@ -202,6 +204,13 @@ section {
   cursor: pointer;
 }
 
+.button-circle {
+  height: 4.4rem;
+  width: 4.4rem;
+  border-radius: 50%;
+  font-size: 2.4rem;
+}
+
 .button-green {
   background-color: var(--fm-green);
   color: #fff;
@@ -220,11 +229,35 @@ section {
   border-color: #fff;
 }
 
+.back-top {
+  padding: 0.8rem;
+  position: fixed;
+  bottom: 5rem;
+  right: 5rem;
+  color: #fff;
+  background-color: var(--fm-blue);
+  border: 1px solid var(--fm-blue);
+  display: block;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.3s, color 0.2s, background-color 0.2s;
+}
+
+.back-top:hover {
+  color: var(--fm-blue);
+  background-color: #fff;
+  border-color: var(--fm-blue);
+}
+
+.back-top-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
 /* =========================
   Header
 ============================ */
 .header {
-  height: 8rem;
   transition: transform 1s ease;
   transform: translateY(0);
   position: absolute;
@@ -236,17 +269,11 @@ section {
 }
 
 .header.scrolled {
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 1);
   position: fixed;
-  top: -8rem;
+  top: 0;
   left: 0;
-  transform: translateY(-80px);
-  transition: transform 1s ease;
-}
-
-.header.fixed {
-  background-color: rgba(0, 0, 0, 0.9);
-  transform: translateY(8rem);
+  width: 100%;
 }
 
 .header-navbar {
@@ -259,12 +286,6 @@ section {
   justify-content: space-between;
 }
 
-.header-logo,
-.header-menu,
-.header-search {
-  flex: 0 1 auto;
-}
-
 .header-logo {
   font-size: 2.5rem;
 }
@@ -273,27 +294,37 @@ section {
   color: #fff;
 }
 
+.header-search:hover {
+  color: var(--fm-green);
+}
+
 /* Could be replaced by .header-link in own approach */
+.navbar-dark .navbar-toggler {
+  color: #fff;
+  border-color: transparent;
+  font-size: 3rem;
+}
+
+.header-menu.navbar-collapse {
+  order: 4;
+  /* height: 1px;
+  transition: all 0.2s ease-in-out; */
+}
+
+.navbar-collapse.show .navbar-nav{
+  /* height: 100vh; */
+}
+
 .navbar-dark .navbar-nav .nav-link {
   font-size: 1.8rem;
   font-weight: 400;
   text-transform: uppercase;
   padding: 2rem 3.5rem;
-  transition: all .2 ease;
+  transition: all 0.2 ease;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
   color: var(--fm-green);
-}
-
-.navbar-dark .navbar-nav .nav-link.active {
-  background-color: var(--fm-green);
-  transform: skew(-10deg);
-  color: #fff;
-}
-
-.navbar-dark .navbar-nav .nav-link.active:hover {
-  color: #fff;
 }
 
 /* =========================
@@ -316,7 +347,7 @@ section {
   background-color: #fff;
   max-width: 100%;
   box-shadow: 0 1px 5px rgb(0 0 0 / 4%), 0 4px 7px rgb(0 0 0 / 8%);
-  padding: .8rem 2.1rem;
+  padding: 0.8rem 2.1rem;
   height: auto;
   min-height: 4.2rem;
   font-size: 1.6rem;
@@ -328,17 +359,16 @@ section {
 }
 
 /*  */
-.form-floating>.form-control:focus~label,
-.form-floating>.form-control:not(:placeholder-shown)~label,
-.form-floating>.form-select~label {
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label,
+.form-floating > .form-select ~ label {
   font-size: 1.4rem;
   padding: 2rem 0 0 1.2rem;
 }
 
 /*  */
-.form-floating >.form-control,
-.form-floating>.form-select {
-
+.form-floating > .form-control,
+.form-floating > .form-select {
 }
 
 /* .form-floating>.form-control:focus,
@@ -569,12 +599,10 @@ right: 0;
   margin: 0;
 }
 
-
-
 /* =========================
   Responsive Styles - Mobile First approach
 ============================ */
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 992px) {
   section {
     padding: 10rem 0;
   }
@@ -598,6 +626,47 @@ right: 0;
 
   .text {
     font-size: 1.8rem;
+  }
+
+  .back-top.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .header {
+    height: 8rem;
+  }
+
+  .header.scrolled {
+    background-color: rgba(0, 0, 0, 0.6);
+    top: -8rem;
+    transform: translateY(-80px);
+    transition: transform 1s ease;
+  }
+
+  .header.fixed {
+    background-color: rgba(0, 0, 0, 0.9);
+    transform: translateY(8rem);
+  }
+
+  .header-logo,
+  .header-menu,
+  .header-search {
+    flex: 0 1 auto;
+  }
+
+  .header-menu.navbar-collapse {
+    order: 0;
+  }
+
+  .navbar-dark .navbar-nav .nav-link.active {
+    background-color: var(--fm-green);
+    transform: skew(-10deg);
+    color: #fff;
+  }
+
+  .navbar-dark .navbar-nav .nav-link.active:hover {
+    color: #fff;
   }
 
   .navbar-expand-lg .navbar-collapse {
