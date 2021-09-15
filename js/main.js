@@ -53,7 +53,7 @@ $(document).ready(function () {
       // Does a scroll target exist?
       if (target.length) {
         // Only prevent default if animation is actually gonna happen
-        event.preventDefault()
+        e.preventDefault()
         $('html, body').animate(
           {
             scrollTop: target.offset().top - 80,
@@ -96,8 +96,10 @@ $(document).ready(function () {
       // 2. Then we compare to 0.2, so the button only shows if the user has scrolled 20% of the page,
       // the 0.2 (20%) represents how much the user needs to scroll before the button shows
 
+      // Vanilla JS: if (!goTopBtn.classList.contains('show')) {
       if (!goTopBtn.hasClass('show')) {
         // If the button does NOT contain class 'show', add it (note the exclamation mark)
+        // Vanilla JS: goTopBtn.classList.add('show')
         goTopBtn.addClass('show')
       }
     } else {
@@ -106,6 +108,7 @@ $(document).ready(function () {
       // if (goTopBtn.classList.contains('show')) {
       if (goTopBtn.hasClass('show')) {
         // Checks if CSS class is added, if it then removes it
+        // Vanilla JS: goTopBtn.classList.remove('show')
         goTopBtn.removeClass('show')
       }
     }
@@ -141,6 +144,9 @@ $(document).ready(function () {
    * Scroll event listener on document
    * This code executes EVERY time the window is being scrolled
    * Which may become super expensive on memory resources
+   *
+   * Vanilla JS:
+   * document.addEventListener('scroll', function () {
    */
   $(document).scroll( function() {
     // Sets Scrolling Flag to true when user is scrolling
@@ -151,7 +157,9 @@ $(document).ready(function () {
   /**
    * Click event listener on button
    * Executes callback function "scrollToTop"
+   *
+   * Vanilla JS:
+   * goTopBtn.addEventListener('click', scrollToTop)
    */
-  //  goTopBtn.addEventListener('click', scrollToTop)
   goTopBtn.click(scrollToTop);
 });
